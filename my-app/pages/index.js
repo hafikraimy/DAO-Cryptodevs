@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Contract, utils, providers } from 'ethers'
-import Web3Modal from 'Web3Modal'
+import Web3Modal from 'web3modal'
 import {
   CRYPTODEVS_DAO_CONTRACT_ADDRESS,
   CRYPTODEVS_DAO_ABI,
@@ -184,11 +184,11 @@ export default function Home() {
         disableInjectedProvider: false,
       });
 
-    connectWallet().then(() => {
-      getDAOTreasuryBalance();
-      getUserNFTBalance();
-      getNumProposalsInDAO();
-    });
+      connectWallet().then(() => {
+        getDAOTreasuryBalance();
+        getUserNFTBalance();
+        getNumProposalsInDAO();
+      });
     }
   }, [walletConnected])
 
